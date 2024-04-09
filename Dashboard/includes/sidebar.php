@@ -12,8 +12,8 @@
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Table</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="../pages/table-basic.php" aria-expanded="false">Basic Table</a></li>
-                            <li><a href="../pages/table-datatable.php" aria-expanded="false">Data Table</a></li>
+                            <li><a href="../pages/table-basic.html" aria-expanded="false">Basic Table</a></li>
+                            <li><a href="../pages/table-datatable.html" aria-expanded="false">Data Table</a></li>
                         </ul>
                     </li>
                 </ul>
