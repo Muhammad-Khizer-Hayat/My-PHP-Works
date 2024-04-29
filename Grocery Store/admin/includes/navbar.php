@@ -1,4 +1,4 @@
-    <!--*******************
+<!--*******************
         Preloader start
     ********************-->
     <div id="preloader">
@@ -22,12 +22,12 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <div class="brand-logo">
-                <a href="index.html">
+            <div class="brand-logo bg-success">
+                <a href="index.php">
                     <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="images/logo-text.png" alt="">
+                        <h2 class="text-white">Ogani</h2>
                     </span>
                 </a>
             </div>
@@ -64,7 +64,7 @@
                     <ul class="clearfix">
                         <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
                                 <i class="mdi mdi-email-outline"></i>
-                                <span class="badge badge-pill gradient-1">3</span>
+                                <span class="badge badge-pill bg-success">3</span>
                             </a>
                             <div class="drop-down animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
@@ -196,7 +196,7 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="profile.php"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li>
                                             <a href="javascript:void()">
@@ -208,7 +208,7 @@
                                         <li>
                                             <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                         </li>
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="./logout.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>

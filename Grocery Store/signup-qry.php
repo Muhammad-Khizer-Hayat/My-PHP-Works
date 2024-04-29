@@ -1,0 +1,41 @@
+<?php
+//Database Connection
+require_once "./helpers.php";
+
+$con = mysqli_connect("localhost" , "root" , "" , "grocery_store") or die("Db not Connected");
+
+
+
+if($_SERVER['REQUEST_METHOD']==="POST" && $_POST['submit']==="signup") {
+
+    $name = ($_POST['name']);
+    $mobile = $_POST['mobile'];
+    $email = $_POST['email'];
+    $password = password_hash( $_POST['password'],PASSWORD_DEFAULT);
+    $address = $_POST['address'];
+    
+
+    //veryfying username is unique
+    $select_q="SELECT *FROM customer WHERE email='$email' ";
+    $result=mysqli_query($con,$select_q);
+    if(mysqli_num_rows($result)===1){
+      die("$email is already registered");
+    }
+
+    $sql = "INSERT INTO customer (`name`,`mobile`, `email`, `password`, `address`)
+     VALUES('$name', '$mobile','$email', '$password','$address')";
+
+    $result = mysqli_query($con, $sql);
+    if($result){
+      $_SESSION['success'] = "Registration successfully...!";
+          header("Location:signup.php");
+
+        //  header("Location:./index.php");
+    }
+    else{
+      $_SESSION['error'] = "Registration has not been complete...!";
+    }
+ }
+
+
+?>

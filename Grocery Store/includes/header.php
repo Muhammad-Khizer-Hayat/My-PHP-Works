@@ -1,5 +1,5 @@
-    <!-- Page Preloder -->
-    <div id="preloder">
+<!-- Page Preloder -->
+<div id="preloder">
         <div class="loader"></div>
     </div>
 
@@ -93,7 +93,15 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="./login.php"><i class="fa fa-user"></i> Login</a>
+                            </div>
+                            |
+                            <div class="header__top__right__auth">
+                                <a href="./signup.php"><i class="fa fa-user"></i> signup</a>
+                            </div>
+                            |
+                            <div class="header__top__right__auth">
+                                <a href="./admin/login.php"><i class="fa fa-user"></i> Admin Login</a>
                             </div>
                         </div>
                     </div>

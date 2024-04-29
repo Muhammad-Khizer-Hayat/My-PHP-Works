@@ -1,4 +1,7 @@
     <!-- Favicon icon -->
+
+    <link rel="stylesheet" href="./font-awosam/css/all.css">
+    <script src="./font-awosam/js/all.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Pignose Calender -->
     <link href="./plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
