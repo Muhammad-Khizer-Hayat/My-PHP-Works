@@ -1,3 +1,7 @@
+<?php
+require_once "./includes/auth.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +35,7 @@
                                 <div class="d-flex flex-column  mb-4">
                                     <img class="mx-auto" src="images/avatar/11.png" width="80" height="80" alt="">
                                     <div class="media-body text-center">
-                                        <h3 class="mb-0">Pikamy Cha</h3>
+                                        <h3 class="mb-0"><?= $_SESSION['name'];?></h3>
                                     </div>
                                 </div>
                                 
