@@ -1,27 +1,19 @@
 <?php
-//Database connection
-include("./config.php");
- $id=$_GET['id'];
- if(!empty($id)){
 
- $get_student_data_qry="SELECT *FROM `products`  WHERE id=$id";
- $get_student_data_qry_run=mysqli_query($con ,$get_student_data_qry);
-if($row=mysqli_fetch_assoc($get_student_data_qry_run)){
-  $id = $row['id'];
-                $name = $row['name'];
-                $unit_price = $row['unit_price'];
-                $category_id = $row['category_id'];
-                $quantity = $row['quantity'];
-                $image = $row['image'];
-                $status = $row['status'];
-                $description = $row['description'];
+require_once("./config.php");
 
+$get_products_id = $_GET['id'];
+
+$select = "SELECT * FROM products WHERE id='$get_products_id'";
+$result = mysqli_query($con, $select);
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
 }
- }else{
-  header("Location:products.php");
- }
- 
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,25 +48,27 @@ if($row=mysqli_fetch_assoc($get_student_data_qry_run)){
             <hr>
 
             <div class="d-flex justify-content-end">
+            <img src="./images/categories/<?= $row['image'] ?>" class="" height="50px">
+
                 <a href="products.php" class="btn btn-success text-white"><i class="fa fa-eye"></i> View Proudcts</a>
             </div>
 
             <div class="form-container">
-                <form action="update.php" method="POST" enctype="multipart/form-data" class="row">
-                <input type="hidden" value="<?php echo $id; ?>" name="id">
+                <form action="./update-products.php" method="POST" enctype="multipart/form-data" class="row">
 
                     <div class="col-lg-4 mb-2">
+                    <input type="hidden" value="<?= $row['id'] ?>" name="id">
+
                         <label class="form-label" for="name">Name <span class="text-danger">*</span>
                         </label>
-
-                        <input type="text" value="<?php echo $name; ?>" class="form-control" id="name" name="name" placeholder="Enter here..." required>
+                        <input type="text" class="form-control" id="name" name="name"  value="<?= $row['name'] ?>" placeholder="Enter here..." required>
                     </div>
 
 
                     <div class="col-lg-4 mb-2">
                         <label class="form-label" for="unit_price">Unit Price <span class="text-danger">*</span>
                         </label>
-                        <input type="number" value="<?php echo $unit_price; ?>" class="form-control" id="unit_price" name="unit_price" placeholder="Enter here..." required>
+                        <input type="number" class="form-control" id="unit_price" name="unit_price"  value="<?= $row['unit_price'] ?>" placeholder="Enter here..." required>
                     </div>
 
 
@@ -82,7 +76,7 @@ if($row=mysqli_fetch_assoc($get_student_data_qry_run)){
                     <div class="col-lg-4 mb-2">
                         <label class="form-label" for="category">Category <span class="text-danger">*</span>
                         </label>
-                        <select class="form-control" value="<?php echo $category_id; ?>" name="category" id="category">
+                        <select class="form-control" name="category"  value="<?= $row['category'] ?>" id="category">
                         <option value="-1">Choose here</option>
                             <!-- fetch category from category table -->
                             <?php
@@ -107,20 +101,20 @@ if($row=mysqli_fetch_assoc($get_student_data_qry_run)){
                     <div class="col-lg-6 ">
                         <label class="form-label" for="quantity">Quantity <span class="text-danger">*</span>
                         </label>
-                        <input type="number" value="<?php echo $quantity; ?>" class="form-control" id="quantity" name="quantity" placeholder="Enter here..." required>
+                        <input type="number" class="form-control" id="quantity" name="quantity"  value="<?= $row['quantity'] ?>" placeholder="Enter here..." required>
                     </div>
 
 
                     <div class="col-lg-6 mb-2">
                         <label class="form-label" for="image">Image <span class="text-danger">*</span>
                         </label>
-                        <input type="file" value="<?php echo $image; ?>" class="form-control" id="image" name="image" placeholder="Enter here..." required>
+                        <input type="file" class="form-control" id="image" name="image"  placeholder="Enter here..." required>
                     </div>
 
                     <div class="col-lg-12 mb-2">
                         <label class="form-label" for="val-username">Description <span class="text-danger">*</span>
                         </label>
-                        <textarea name="description" value="<?php echo $description; ?>" class="form-control" id="" rows="5"></textarea>
+                        <textarea name="description" class="form-control" value="<?= $row['description'] ?>" id="" rows="5"></textarea>
                     </div>
 
                     <div class="offset-8 col-lg-4 mb-2">

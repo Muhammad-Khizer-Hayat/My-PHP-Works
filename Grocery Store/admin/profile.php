@@ -42,10 +42,10 @@ require_once "./includes/auth.php";
                                 
 
                                 <h4>About Me</h4>
-                                <p class="text-muted">Hi, I'm Pikamy, has been the industry standard dummy text ever since the 1500s.</p>
+                                <p class="text-muted"><?= $_SESSION['description'];?></p>
                                 <ul class="card-profile__info">
-                                    <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>01793931609</span></li>
-                                    <li><strong class="text-dark mr-4">Email</strong> <span>name@domain.com</span></li>
+                                    <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span><?= $_SESSION['mobile'];?></span></li>
+                                    <li><strong class="text-dark mr-4">Email</strong> <span><?= $_SESSION['email'];?></span></li>
                                 </ul>
                             </div>
                             <div class="row mb-5">

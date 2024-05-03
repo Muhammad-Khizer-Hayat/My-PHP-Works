@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // exit;
 
         $query = "INSERT INTO `users`( `name`, `email`, `password`, `role`, `mobile`, `address`,`description`, `image`)
-            VALUES ('$_POST[name]','$_POST[email]' ,'$_POST[password]','$_POST[role]','$_POST[mobile]','$_POST[address]','$_POST[description]','$_POST[image]') ";
+            VALUES ('$_POST[name]','$_POST[email]' ,'$_POST[password]','$_POST[mobile]','$_POST[address]','$_POST[description]','$_POST[image]') ";
 
         if (mysqli_query($con, $query)) {
             header("Location:add-users.php");
