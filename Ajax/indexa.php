@@ -27,7 +27,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <form method="POST">
@@ -62,7 +62,7 @@
 
             function loadData() {
                 $.ajax({
-                    url: "./ajax.php",
+                    url: "ajax.php",
                     type: "GET",
                     data: {
 
@@ -98,7 +98,7 @@
                         let data = JSON.parse(res);
                        $("#name").val(data.name);
                        $("#item_id").val(data.id);
-                        $("#exampleModal").modal("show");
+                        $("#editModal").modal("show");
                         // console.log(data.name)
                     }
                 })
@@ -118,7 +118,7 @@
                         $("#messages").html(res).show();
                         setTimeout(() => {
                             $("#messages").hide();
-                            $("#exampleModal").modal("hide");
+                            $("#editeModal").modal("show");
                         }, 2000)
                     }
                 })

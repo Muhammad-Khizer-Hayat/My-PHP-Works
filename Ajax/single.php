@@ -4,7 +4,7 @@ require_once "./config.php";
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM items WHERE id=$id LIMIT 1";
+    $sql = "SELECT * FROM frites WHERE id=$id LIMIT 1";
     $result = mysqli_query($con, $sql);
     $record = mysqli_fetch_assoc($result);
 
