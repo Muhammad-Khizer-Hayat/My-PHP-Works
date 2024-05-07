@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // echo "<pre>"; print_r($_FILES); echo "</pre>";
 
     // upload image
-    $data = uploadImage("users", $_FILES['image'], 3, "add-users.php");
+    $data = uploadImage("users", $_FILES['image'], 3, "users");
 
     if ($data['errors'] === false) {
         // save info into db
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // echo $name;
         // exit;
 
-        $query = "INSERT INTO `users`( `name`, `email`, `password`, `role`, `mobile`, `address`,`description`, `image`)
+        $query = "INSERT INTO users ( `name`, `email`, `password`, `role`, `mobile`, `address`,`description`, `image`)
             VALUES ('$_POST[name]','$_POST[email]' ,'$_POST[password]','$_POST[mobile]','$_POST[address]','$_POST[description]','$_POST[image]') ";
 
         if (mysqli_query($con, $query)) {

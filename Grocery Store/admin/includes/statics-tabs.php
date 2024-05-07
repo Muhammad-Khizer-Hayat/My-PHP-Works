@@ -1,4 +1,6 @@
-
+<div class="d-flex justify-content-end mb-3">
+                <a href="./view-users.php" class="btn btn-success text-white"><i class="fa fa-user"></i> View user</a>
+            </div>
 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
