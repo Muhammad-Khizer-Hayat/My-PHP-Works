@@ -23,8 +23,9 @@
             $ret = getProducts($con, null, $pid);
             $product = mysqli_fetch_assoc($ret);
         }
-         
-        $products= getProducts($con);
+
+        
+
     ?>
 
     <!-- Breadcrumb Section Begin -->
@@ -33,11 +34,11 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2><?php echo $product['name'] ?></h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <a href="./index.html">Vegetables</a>
-                            <span>Vegetable’s Package</span>
+                            <span><?php echo $product['name'] ?></span>
                         </div>
                     </div>
                 </div>
@@ -48,15 +49,15 @@
 
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
+    
         <div class="container">
-        <?php while( $prd = mysqli_fetch_assoc($products)) {?> 
-
             <div class="row">
+                
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="<?php echo imageUrl("product", $prd['image'])  ?>" alt="">
+                                src="<?php echo imageUrl("product", $product['image']) ?>"alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"
@@ -72,7 +73,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3><?=  $prd['name']?></h3>
+                        <h3><?php echo $product['name'] ?></h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -81,8 +82,8 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">$<?= $prd['unit_price'] ?></div>
-                        <p><?= $prd['pid'], $prd['description']  ?></p>
+                        <div class="product__details__price">$<?php echo $product['unit_price'] ?></div>
+                        <p><?php echo $product['description'] ?></p>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -188,8 +189,7 @@
                     </div>
                 </div>
             </div>
-
-            <?php } 
+           
             
             
             ?>

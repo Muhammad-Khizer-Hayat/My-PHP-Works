@@ -2,7 +2,7 @@
 session_start();
 
 
-function uploadImage($targetDir, $file, $size = 5, $direct)
+function uploadImage($targetDir, $file, $size , $direct)
 
 {
     

@@ -18,13 +18,14 @@ else {
     
     $row  = mysqli_fetch_assoc($result);
     
-    $_SESSION['name'] = $row['name'];
-    $_SESSION['email'] = $row['email'];
-    $_SESSION['mobile'] = $row['mobile'];
-    $_SESSION['address'] = $row['address'];
-    $_SESSION['role'] = $row['role'];
-    $_SESSION['description'] = $row['description'];
-    $_SESSION['image'] = $row['image'];
+    $_SESSION['user_name'] = $row['name'];
+
+    $_SESSION['user_email'] = $row['email'];
+    $_SESSION['user_mobile'] = $row['mobile'];
+    $_SESSION['user_address'] = $row['address'];
+    $_SESSION['user_role'] = $row['role'];
+    $_SESSION['user_description'] = $row['description'];
+    $_SESSION['user_image'] = $row['image'];
 }
 
 

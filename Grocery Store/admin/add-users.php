@@ -51,12 +51,12 @@
                     <div class="col-lg-6 mb-2">
                         <label class="form-label" for="text">Password <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control" id="password" name="password" placeholder="Enter here..." required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter here..." required>
                     </div>
                     <div class="col-lg-6 mb-2">
                         <label class="form-label" for="image">Image <span class="text-danger">*</span>
                         </label>
-                        <input type="file" class="form-control" id="image" name="image" placeholder="Enter here..." required>
+                        <input type="file" class="form-control" id="image" name="image"  required>
                     </div>
                     <div class="col-lg-6 ">
                         <label class="form-label" for="text">Mobile <span class="text-danger">*</span>

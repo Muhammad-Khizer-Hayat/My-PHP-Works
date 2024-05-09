@@ -72,7 +72,7 @@
                     ?>
 
                         <tr>
-                        <td><img src="./images/users/ <?php echo $row['image'] ?>" alt="users Image" height="60px"></td>
+                        <td><img src="images/users/<?php echo $row['image'] ?>" alt="users Image" height="60px"></td>
                             <td><?= $row['name'] ?></td>
                             <td><?= $row['email'] ?></td>
                             <td><?= $row['mobile'] ?></td>
