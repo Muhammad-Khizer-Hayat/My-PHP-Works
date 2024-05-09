@@ -38,7 +38,6 @@
                         </div>
                     <?php }
                     mysqli_data_seek($cats, 0);
-                    print_r($products ,'id')
 
                     ?>
 
@@ -82,7 +81,7 @@
                             <?php while ($ct = mysqli_fetch_assoc($cats)) { ?>
                                 <li data-filter=".<?= $ct['category'] ?>"><?php echo $ct['category'] ?></li>
                             <?php }
-                            // mysqli_data_seek($cats, 0);
+                            mysqli_data_seek($cats, 0);
 
                             ?>
                             <!-- <li data-filter=".fresh-meat">Fresh Meat</li>
