@@ -14,37 +14,54 @@
     <!-- header-section include -->
     <?php require_once("./includes/header.php") ?>
 
+    <!-- Categories Get -->
+    <?php
+
+    $cats = getCategories($con);
+
+    // products
+    $products = getProducts($con);
+    ?>
+
 
     <!-- Categories Section Begin -->
     <section class="categories">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
-                            <h5><a href="#">Fresh Fruit</a></h5>
+                    <?php while ($row =  mysqli_fetch_assoc($cats)) { ?>
+                        <div class="col-lg-3">
+                            <div class="categories__item set-bg" data-setbg="<?php echo imageUrl("categories", $row['image']) ?>">
+
+                                <h5><a href="#"> <?= $row['category'] ?> </a></h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3">
+                    <?php }
+                    mysqli_data_seek($cats, 0);
+                    print_r($products ,'id')
+
+                    ?>
+
+                    <!-- <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
                             <h5><a href="#">Dried Fruit</a></h5>
                         </div>
-                    </div>
-                    <div class="col-lg-3">
+                    </div> -->
+                    <!-- <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
                             <h5><a href="#">Vegetables</a></h5>
                         </div>
-                    </div>
-                    <div class="col-lg-3">
+                    </div> -->
+                    <!-- <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
                             <h5><a href="#">drink fruits</a></h5>
                         </div>
-                    </div>
-                    <div class="col-lg-3">
+                    </div> -->
+                    <!-- <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
                             <h5><a href="#">drink fruits</a></h5>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -62,18 +79,26 @@
                     <div class="featured__controls">
                         <ul>
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
+                            <?php while ($ct = mysqli_fetch_assoc($cats)) { ?>
+                                <li data-filter=".<?= $ct['category'] ?>"><?php echo $ct['category'] ?></li>
+                            <?php }
+                            // mysqli_data_seek($cats, 0);
+
+                            ?>
+                            <!-- <li data-filter=".fresh-meat">Fresh Meat</li>
                             <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
+                            <li data-filter=".fastfood">Fastfood</li> -->
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                <?php while($prt= mysqli_fetch_assoc($products) ) { ?>
+
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix <?php $prd= getCategroyById($con, $prt['category_id']); echo $prd['category'] ?> fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
+                        <div class="featured__item__pic set-bg" data-setbg="<?php echo imageUrl("product", $prt['image']) ?>">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -81,12 +106,20 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="shop-details.php?pid=<?=$prt['id'] ?>"> <?= $prt['name'] ?> </a></h6>
+                            <h5> $<?=$prt['unit_price'] ?> </h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+                
+                <?php } 
+                mysqli_data_seek($products, 0);
+                ?> 
+           
+
+
+
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
                             <ul class="featured__item__pic__hover">
@@ -100,8 +133,8 @@
                             <h5>$30.00</h5>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
                             <ul class="featured__item__pic__hover">
@@ -115,8 +148,8 @@
                             <h5>$30.00</h5>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
                             <ul class="featured__item__pic__hover">
@@ -130,8 +163,8 @@
                             <h5>$30.00</h5>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
                             <ul class="featured__item__pic__hover">
@@ -190,7 +223,7 @@
                             <h5>$30.00</h5>
                         </div>
                     </div>
-                </div>
+                </div>            -->
             </div>
         </div>
     </section>

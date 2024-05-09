@@ -15,6 +15,17 @@
     <!-- header-section include -->
     <?php require_once("./includes/header.php") ?>
 
+    <?php
+        $pid = null;
+        $product = null;
+        if(isset($_GET['pid'])){
+            $pid = $_GET['pid'];
+            $ret = getProducts($con, null, $pid);
+            $product = mysqli_fetch_assoc($ret);
+        }
+
+    ?>
+
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">

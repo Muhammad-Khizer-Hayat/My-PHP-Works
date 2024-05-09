@@ -33,7 +33,7 @@ require_once "./includes/auth.php";
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column  mb-4">
-                                    <img class="mx-auto" src="images/avatar/11.png" width="80" height="80" alt="">
+                                    <img class="mx-auto" src="<?= $_SESSION['name'];?>" width="80" height="80" alt="">
                                     <div class="media-body text-center">
                                         <h3 class="mb-0"><?= $_SESSION['name'];?></h3>
                                     </div>

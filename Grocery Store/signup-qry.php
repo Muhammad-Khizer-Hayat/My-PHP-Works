@@ -1,8 +1,8 @@
 <?php
 //Database Connection
-require_once "./helpers.php";
+require_once "./includes/helpers.php";
+require_once "./includes/config.php";
 
-$con = mysqli_connect("localhost" , "root" , "" , "grocery_store") or die("Db not Connected");
 
 
 
