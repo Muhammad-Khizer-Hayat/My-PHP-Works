@@ -6,9 +6,9 @@
 <html lang="en">
 <head>
     <title>Login_Form</title>
-    <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css">
-    <script src="./Bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- css links include -->
+    <?php require_once("./includes/css-links.php") ?>
 </head>
 <body class="container ">
     <!-- Login 13 - Bootstrap Brain Component -->
@@ -67,7 +67,7 @@ unset($_SESSION['Invalid']);
                   </div>
                   <div class="col-12">
                     <div class="d-grid my-3">
-                      <button class="btn btn-success btn-sm" type="submit" name="submit" value="login">Log in</button>
+                      <button class="btn btn-success btn-sm w-100" type="submit" name="submit" value="login">Log in</button>
                     </div>
                   </div>
                   <div class="col-12">
@@ -82,6 +82,9 @@ unset($_SESSION['Invalid']);
     </div>
   </section>
 
+<!-- js links includes -->
+
+<?php require_once("./includes/javascript-links.php") ?>
 
   <script>
         $(document).ready(function() {

@@ -1,5 +1,4 @@
 <?php
-require_once "./helpers.php";
 
 $con = mysqli_connect("localhost", "root", "", "grocery_store") or die("Db not Connected");
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['submit'] == "login") {

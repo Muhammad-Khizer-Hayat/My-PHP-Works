@@ -1,5 +1,6 @@
 <?php
-require_once "auth.php";
+require_once "config.php";
+require_once "./includes/auth.php";
 
 
 ?>
@@ -30,7 +31,7 @@ require_once "auth.php";
     <div class="content-body">
 
         <!-- Add and View Users -->
-        <?php if ($_SESSION['user_role'] === "admin") {
+        <?php if ($_SESSION['role'] === "admin") {
             echo "
             <div class='row page-titles mx-0'>
             <div class='col p-md-0'>
@@ -52,22 +53,22 @@ require_once "auth.php";
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column  mb-4">
-                                <img class="mx-auto" src="images/avatar/11.png" width="80" height="80" alt="">
+                                <img class="mx-auto" src=" <?= $_SESSION['image'] ?> " width="80" height="80" alt="">
                                 <div class="media-body text-center">
-                                    <h3 class="mb-0"><?= $_SESSION['user_name'] ?></h3>
+                                    <h3 class="mb-0"><?= $_SESSION['name'] ?></h3>
                                 </div>
                             </div>
 
 
                             <ul class="card-profile__info">
-                                <li class="mb-2"><strong class="text-dark mr-4">Mobile</strong> <span><?= $_SESSION['user_mobile'] ?></span></li>
-                                <li class="mb-2"><strong class="text-dark mr-4">Email</strong> <span><?= $_SESSION['user_email'] ?></span></li>
-                                <li class="mb-2"><strong class="text-dark mr-4">Address</strong> <span><?= $_SESSION['user_address'] ?></span></li>
+                                <li class="mb-2"><strong class="text-dark mr-4">Mobile</strong> <span><?= $_SESSION['mobile'] ?></span></li>
+                                <li class="mb-2"><strong class="text-dark mr-4">Email</strong> <span><?= $_SESSION['email'] ?></span></li>
+                                <li class="mb-2"><strong class="text-dark mr-4">Address</strong> <span><?= $_SESSION['address'] ?></span></li>
 
                             </ul>
 
                             <h4>About Me</h4>
-                            <p class="text-muted" align='justify'><?= $_SESSION['user_description'] ?></p>
+                            <p class="text-muted" ><?= $_SESSION['description'] ?></p>
 
                             <div class="row my-2">
                                 <div class="col-12 text-center">

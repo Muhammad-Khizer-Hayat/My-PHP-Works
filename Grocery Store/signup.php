@@ -6,8 +6,8 @@
 <html lang="en">
 <head>
     <title>Regestration_Form</title>
-    <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css">
-    <script src="./Bootstrap/js/bootstrap.bundle.min.js"></script>
+     <!-- css links include -->
+     <?php require_once("./includes/css-links.php") ?>
 
 </head>
 <body class="container ">
@@ -81,7 +81,7 @@ unset($_SESSION['error']);
                   </div>
                   <div class="col-12">
                     <div class="d-grid my-3">
-                      <button class="btn btn-success btn-sm" type="submit" name="submit" value="signup" >Sign Up</button>
+                      <button class="btn btn-success btn-sm w-100" type="submit" name="submit" value="signup" >Sign Up</button>
                     </div>
                     <div class="col-12">
                     <p class="m-0 text-secondary text-center">Don You have an account? <a href="./login.php" class="link-primary text-decoration-none">Login</a></p>
