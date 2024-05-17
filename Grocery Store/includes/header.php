@@ -93,24 +93,17 @@ require_once "helpers.php"
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
+                            
+                            |
+                            <div class="header__top__right__auth p-2">
+                                <a href="./login.php"><i class="fa fa-accou"></i> My Account</a>
                             </div>
-                            <div class="header__top__right__auth">
+                           |
+                            <div class="header__top__right__auth p-2">
                                 <a href="./login.php"><i class="fa fa-user"></i> Login</a>
                             </div>
-                            |
-                            <div class="header__top__right__auth">
-                                <a href="./signup.php"><i class="fa fa-user"></i> signup</a>
-                            </div>
-                            |
-                            <div class="header__top__right__auth">
+                           |
+                            <div class="header__top__right__auth p-2">
                                 <a href="./admin/login.php"><i class="fa fa-user"></i> Admin Login</a>
                             </div>
                         </div>
@@ -147,9 +140,9 @@ require_once "helpers.php"
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span id="cartItemsCountDesk">0</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
                 </div>
             </div>

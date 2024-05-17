@@ -34,7 +34,7 @@
                 <a href="./view-users.php" class="btn btn-success text-white"><i class="fa fa-eye"></i> View Users</a>
             </div>
 
-            <div class="form-container">
+            <div class="form-container">  
                 <form action="./add-users-qry.php" method="POST" enctype="multipart/form-data" class="row">
                   
                     <div class="col-lg-6 mb-2">

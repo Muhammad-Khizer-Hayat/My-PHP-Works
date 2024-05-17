@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- datatables.html  21 Nov 2019 03:55:21 GMT -->
+<head>
+  <meta charset="UTF-8">
+  
+  <?php require_once "./includes/css-links.php" ?>
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+   <!-- navebar-include -->
+   <?php require_once "./includes/navebar.php" ?>
+
+     <?php require_once "./includes/sidebar.php" ?>
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Basic DataTables</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="table-1">
+                        <thead>
+                          <tr>
+                            <th class="text-center">
+                              #
+                            </th>
+                            <th>Task Name</th>
+                            <th>Progress</th>
+                            <th>Members</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>Create a mobile app</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-40">
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <img alt="image" src="assets/img/users/user-5.png" width="35">
+                            </td>
+                            <td>2018-01-20</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">Detail</a></td>
+                          </tr>
+                          <tr>
+                            
+                           
+                            
+                            <td>
+                              12
+                            </td>
+                            <td>Input data</td>
+                            <td class="align-middle">
+                              <div class="progress progress-xs">
+                                <div class="progress-bar bg-success width-per-90"></div>
+                              </div>
+                            </td>
+                            <td>
+                              <img alt="image" src="assets/img/users/user-2.png" width="35">
+                              <img alt="image" src="assets/img/users/user-5.png" width="35">
+                              <img alt="image" src="assets/img/users/user-4.png" width="35">
+                              <img alt="image" src="assets/img/users/user-1.png" width="35">
+                            </td>
+                            <td>2018-01-16</td>
+                            <td>
+                              <div class="badge badge-success badge-shadow">Completed</div>
+                            </td>
+                            <td><a href="#" class="btn btn-primary">Detail</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+        </section>
+      </div>
+      <?php require_once "./includes/footer.php" ?>
+    </div>
+  </div>
+  <?php require_once "./includes/javaScript-links.php" ?>
+</body>
+
+
+<!-- datatables.html  21 Nov 2019 03:55:25 GMT -->
+</html>

@@ -282,32 +282,31 @@
     <?php require_once("./includes/javascript-links.php") ?>
 
 
-<script>
-$(document).ready(function(){
-$("#addToCart").on("click",function(e){
-    e.preventDefault();
-  let pid= "<?php echo $pid  ?>";
-  let qty= $("#product-qty").val();
-//   alert(qty);
-
-  $.ajax({
+    <script>
+    $(document).ready(function () {
+        $("#addToCart").on("click", function (e){
+            e.preventDefault();
+            let pid = "<?php echo $pid ?>";
+            let qty = $("#product-qty").val();
+            $.ajax({
                 url: "add-to-cart.php",
                 type: "POST",
                 data: {pid, qty},
                 success: function (response) {
-                    console.log(response)
-                    
+                    $("#cartItemsCountDesk").html(response);
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "Items is successfully added to cart",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             })
-})
 
-
-})
-
-
+        })
+    })
 </script>
-
-
 
 </body>
 
