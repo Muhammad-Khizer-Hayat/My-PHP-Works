@@ -39,13 +39,18 @@
                 <div class="card">
                   <div class="card-header">
                   <h3 style="color: blue;" > <i class="fa fa-eye " style="color: blue;" ></i> View Users</h3>
+                  <hr>
+                  <div class="d-flex justify-content-end">
+                <a href="./users.php" class="btn btn-primary text-white"><i class="fa fa-plus"></i> Add Users</a>
+            </div>
                   </div>
+                  
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-striped" id="table-1">
                         <thead>
                           <tr>
-                          <th>#</th>
+                          <th>ID</th>
                           <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -81,7 +86,7 @@
                             <td ><?= $row['role'] ?></td>
                             <td>
                                 <div class="dropdown">
-                                    <button type="button" class="btn btn-success text-white dropdown-toggle" data-toggle="dropdown">Actions</button>
+                                    <button type="button" class="btn btn-primary text-white dropdown-toggle" data-toggle="dropdown">Actions</button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Remove</a>
                                         <a class="dropdown-item" href="#">Edit</a>
