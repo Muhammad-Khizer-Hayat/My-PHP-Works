@@ -1,3 +1,13 @@
+<?php
+require_once "config.php";
+require_once "helpers.php"
+
+
+?>
+
+
+
+
 <div class="header-section section">
        
        <!-- Header Top Start -->
@@ -11,7 +21,7 @@
                            <div class="row">
 
                                <!-- Header Social -->
-                               <div class="header-social col-md-4 col-12">
+                               <div class="header-social col-md-3 col-12">
                                    <a href="#"><i class="fa fa-facebook"></i></a>
                                    <a href="#"><i class="fa fa-twitter"></i></a>
                                    <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -20,14 +30,19 @@
                                </div>
 
                                <!-- Header Logo -->
-                               <div class="header-logo col-md-4 col-12">
+                               <div class="header-logo col-md-3 col-12">
                                    <a href="index.html" class="logo"><img src="img/logo.png" alt="logo"></a>
                                </div>
 
                                <!-- Account Menu -->
-                               <div class="account-menu col-md-4 col-12">
+                               <div class="account-menu col-md-6 col-12">
                                    <ul>
                                        <li><a href="#">My Account</a></li>
+                                                  
+                                       <li><a href="./admin/login.php"><i class="fa fa-user"></i> Admin Login</a></li>
+                                       <li><a href="login.php"><i class="fa fa-user"></i>  Login</a></li>
+                                       <li><a href="./register.php"><i class="exit_to_register"></i> REGISTER</a></li>
+               
                                        <li><a href="wishlist.php">Wishlist</a></li>
                                        <li><a href="#" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i><span class="num">2</span></a>
                                            

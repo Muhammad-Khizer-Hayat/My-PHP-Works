@@ -20,6 +20,7 @@
     $cats = getCategories($con);
 
     // products
+    
     $products = getProducts($con);
     ?>
 

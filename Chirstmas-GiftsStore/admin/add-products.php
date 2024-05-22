@@ -1,10 +1,13 @@
+<?php
+require_once "./includes/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 
 <!-- index.html  21 Nov 2019 03:44:50 GMT -->
 <head>
-
+<title> Add-Products</title>
    <!-- Css-Links-Include -->
 <?php  require_once "./includes/css-links.php"   ?>
 </head>
@@ -26,8 +29,8 @@
       <div class="main-content">
       
  <!-- view categories container -->
- <div class="container mt-3 bg-white p-4">
-            <h3 style="color: blue;" > <i class="fa fa-plus " style="color: blue;"></i> Add Products</h3>
+ <div class="container mt-3 bg-dark p-4">
+            <h3 class="text-primary-all" > <i class="fa fa-plus "></i> Add Products</h3>
             <hr>
 
             <div class="d-flex justify-content-end">

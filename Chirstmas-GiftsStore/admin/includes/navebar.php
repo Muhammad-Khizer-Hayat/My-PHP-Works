@@ -1,3 +1,9 @@
+<?php
+require_once "helpers.php";
+require_once "auth.php";
+require_once "config.php";
+?>
+
 <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar sticky">
         <div class="form-inline mr-auto">
@@ -131,11 +137,11 @@
             </div>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown"
-              class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png"
+              class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="./images/users/<?= $_SESSION['image'] ?>"
                 class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
-              <div class="dropdown-title">Hello Sarah Smith</div>
-              <a href="profile.html" class="dropdown-item has-icon"> <i class="far
+              <div class="dropdown-title">Hello <?= $_SESSION['username'] ?> </div>
+              <a href="profile.php" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
               </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
                 Activities
@@ -143,7 +149,7 @@
                 Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+              <a href="logout.php" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
                 Logout
               </a>
             </div>

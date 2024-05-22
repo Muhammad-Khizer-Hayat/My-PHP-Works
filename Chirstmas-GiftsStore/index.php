@@ -25,6 +25,12 @@
 <!-- Headers-includes -->
 <?php require_once "./includes/headers.php" ?>
 
+<?php
+$cats= getCategories($con);
+
+$products = getProducts($con);
+?>
+
  <!-- Header Section End -->
     
        
@@ -70,20 +76,22 @@
     <div class="banner-section section pt-120">
         <div class="container">
             <div class="row">
+                <?php while($row= mysqli_fetch_assoc($cats)) { ?>
                 
-                <div class="col-lg-6 col-12 mb-30">
+                <div class="col-lg-4 col-12 mb-30">
                     
                     <div class="single-banner">
-                        <img src="img/banner/1.jpg" alt="banner">
-                        <div class="banner-content right">
-                            <h1 class="white"><span>Gifts</span>Christmas</h1>
+                        <img src="<?php echo imageUrl("categories", $row['image']) ?>"  alt="banner">
+                        <div class="banner-content bottom">
+                            <h1 class="black"><span>Gifts</span>Christmas</h1>
                             <a href="#" class="button">Shop Now</a>
                         </div>
                     </div>
                     
                 </div>
+                <?php } ?>
                 
-                <div class="col-lg-6 col-12 mb-30">
+                <!-- <div class="col-lg-6 col-12 mb-30">
                     
                     <div class="single-banner">
                         <img src="img/banner/2.jpg" alt="banner">
@@ -92,7 +100,7 @@
                             <a href="#" class="link">Shop Now</a>
                         </div>
                     </div>
-                    
+                     -->
                 </div>
                 
             </div>
@@ -122,7 +130,7 @@
                         <!-- Image Wrapper -->
                         <div class="image">
                             <!-- Image -->
-                            <a href="product-details.php" class="img"><img src="img/product/1.jpg" alt="Product"></a>
+                            <a href="product-details.html" class="img"><img src="img/product/2.jpg" alt="Product"></a>
                             <!-- Wishlist -->
                             <a href="#" class="wishlist"><i class="fa fa-heart-o"></i></a>
                             <!-- Label -->

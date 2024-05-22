@@ -2,6 +2,7 @@
 session_start();
 
 require_once("./config.php");
+require_once "./includes/auth.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"  && $_POST['submit'] == "login") {
     $email = $_POST['email'];
@@ -10,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"  && $_POST['submit'] == "login") {
     // verify inputs are correct ?
 
     if ($email == "" || $password == "") {
-        $_SESSION['error'] = "All feilds are requireds...!";
         header("Location:login.php");
         exit;
     }
@@ -20,8 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"  && $_POST['submit'] == "login") {
     $exists = mysqli_query($con, $sel_sql);
 
     if (mysqli_num_rows($exists) === 0) {
-        
-        $_SESSION['invalid'] = " No users is registered with this email - $email";
         header("Location:login.php");
         exit;
     }
@@ -42,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"  && $_POST['submit'] == "login") {
         //echo "inside"; exit;
         header("location:index.php");
     } else {
-        $_SESSION['invalid'] = "Invalid Credentials...!";
         header("Location:login.php");
         exit;
         

@@ -1,9 +1,10 @@
 <?php
 
 // db connection
-
+require_once "./includes/auth.php";
 require_once "./config.php";
 require_once "./includes/helpers.php";
+
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

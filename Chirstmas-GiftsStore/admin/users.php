@@ -1,10 +1,13 @@
+<?php
+require_once "./includes/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 
 <!-- index.html  21 Nov 2019 03:44:50 GMT -->
 <head>
-
+<title> Add-Users</title>
    <!-- Css-Links-Include -->
 <?php  require_once "./includes/css-links.php"   ?>
 </head>

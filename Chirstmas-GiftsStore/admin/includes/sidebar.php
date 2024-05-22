@@ -9,12 +9,20 @@
             <li class="dropdown active">
               <a href="index.php" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
-            <li class="dropdown">
-              <a href="./catigories.php"><i data-feather="briefcase"></i><span>Categories</span></a>
+            <li class="text-primary-all">
+              <a href="./catigories.php"><i class="fas fa-book" ></i><span>Categories</span></a>
 
             </li>
-            <li class="dropdown">
-              <a href="./products.php"><i data-feather="briefcase"></i><span>Products</span></a>
+            <li class="text-primary-all">
+              <a href="./products.php"><i class="fas fa-cube" ></i><span>Products</span></a>
+
+            </li>
+            <li class="text-primary-all">
+              <a href="./customers.php"><i class="	fas fa-user-plus" ></i><span>Customers</span></a>
+
+            </li>
+            <li class="text-primary-all">
+              <a href="#"><i class="fas fa-cube" ></i><span>Orders</span></a>
 
             </li>
            
