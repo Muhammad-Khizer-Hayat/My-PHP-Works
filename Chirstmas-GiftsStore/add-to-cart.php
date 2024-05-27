@@ -1,6 +1,6 @@
 <?php
 
-    include_once "./includes/config.php";
+    include_once "config.php";
     include_once "./includes/helpers.php";
 
     if(isset($_POST["pid"])){
@@ -27,12 +27,12 @@
             updateOrder($con, $order, $product, $qty);
         }
         
-        $order_item = getOrderItemsByOrderId($con, $order['id']);
-        // pp($order_item); exit;
+        $order_items = getOrderItemsByOrderId($con, $order['id']);
+        //pp($order_item); exit;
         
-        echo count($order_item);
+        echo count($order_items);
     }
-       // remove item from cart
+    //    remove item from cart
        if(isset($_POST["item_id"])){
         $item_id = $_POST["item_id"];
         removeItem($con, $item_id);

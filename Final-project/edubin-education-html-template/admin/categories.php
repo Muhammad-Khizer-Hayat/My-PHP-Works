@@ -195,6 +195,20 @@ $id=$row['id'];
   </div>
    <!-- JavaScript-links-Include -->
    <?php  require_once "./includes/javaScript-links.php"   ?>
+   <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".uploadingErr").hide();
+            }, 3000);
+
+
+            setTimeout(function() {
+                $(".credErr").hide();
+            }, 3000);
+
+        })
+    </script>
+
  
 </body>
 

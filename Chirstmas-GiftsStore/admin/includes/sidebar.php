@@ -10,7 +10,7 @@
               <a href="index.php" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <li class="text-primary-all">
-              <a href="./catigories.php"><i class="fas fa-book" ></i><span>Categories</span></a>
+              <a href="./categories.php"><i class="fas fa-book" ></i><span>Categories</span></a>
 
             </li>
             <li class="text-primary-all">

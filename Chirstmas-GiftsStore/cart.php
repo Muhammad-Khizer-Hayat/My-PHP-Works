@@ -26,6 +26,10 @@
    
    <!-- header-includes -->
 <?php require_once "./includes/headers.php"  ?>
+
+<?php
+    $data = getCart($con);
+    ?>
    
    <!-- Header Section End -->
     
@@ -69,28 +73,24 @@
                             
                             <!-- Table Body -->
                             <tbody>
+                            <?php $grand_total = 0 ?>
+                            <?php if (!empty($data)) { $sr=1; ?>
+                                    <?php while ($item = mysqli_fetch_assoc($data['items'])) { ?>
+                                        <?php $grand_total += $item['total_price']  ?>
                                 <tr>
-                                    <td><span class="cart-number">1</span></td>
-                                    <td><a href="#" class="cart-pro-image"><img src="img/product/1.jpg" alt="" /></a></td>
-                                    <td><a href="#" class="cart-pro-title">Holiday Candle</a></td>
+                                    <td><span class="cart-number"><?=$sr ?></span></td>
+                                    <td><a href="#" class="cart-pro-image"><img src="<?php echo imageUrl("products", $item['image']) ?>" alt="" /></a></td>
+                                    <td><a href="#" class="cart-pro-title"><?= $item['name'] ?></a></td>
                                     <td><div class="product-quantity">
-                                        <input type="text" value="0" name="qtybox">
+                                        <input type="text" value="<?= $item['quantity'] ?>" name="qtybox">
                                     </div></td>
-                                    <td><p class="cart-pro-price">$104.99</p></td>
-                                    <td><p class="cart-price-total">$104.99</p></td>
-                                    <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
+                                    <td><p class="cart-pro-price">$<?= $item['unit_price'] ?></p></td>
+                                    <td><p class="cart-price-total">$<?= $item['total_price'] ?></p></td>
+                                    <td><button class="cart-pro-remove" data-id="<?= $item['id'] ?>" ><i class="fa fa-trash-o"></i></button></td>
                                 </tr>
-                                <tr>
-                                    <td><span class="cart-number">2</span></td>
-                                    <td><a href="#" class="cart-pro-image"><img src="img/product/2.jpg" alt="" /></a></td>
-                                    <td><a href="#" class="cart-pro-title">Christmas Tree</a></td>
-                                    <td><div class="product-quantity">
-                                        <input type="text" value="0" name="qtybox">
-                                    </div></td>
-                                    <td><p class="cart-pro-price">$85.99</p></td>
-                                    <td><p class="cart-price-total">$85.99</p></td>
-                                    <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
-                                </tr>
+                            <?php $sr++; } ?>
+                            <?php } ?>
+                            
                             </tbody>
                         </table>
                     </div>
@@ -116,8 +116,15 @@
                         <!-- Cart Checkout Progress -->
                         <div class="cart-checkout-process col-lg-4 col-md-6 col-12 mb-30">
                             <h4 class="title">Process Checkout</h4>
-                            <p><span>Subtotal</span><span>$190.98</span></p>
-                            <h5><span>Grand total</span><span>$190.98</span></h5>
+                            <p><span>Subtotal</span><span>$<?= $grand_total ?></span></p>
+                            <p><span>Discount</span><span>20%</span></p>
+                            <h5><span>Grand total</span><span>
+                            $<?php
+                                                $disc = $grand_total / 20;
+                                                $grand_total = $grand_total - $disc;
+                                                echo $grand_total;
+                                                ?>
+                            </span></h5>
                             <button class="button">process to checkout</button>
                         </div>
                         
@@ -146,6 +153,57 @@
 
 <!-- Js-links-includes -->
 <?php require_once "./includes/Js-links.php"  ?>
+
+<script>
+        $(document).ready(function() {
+            $(".cart-pro-remove").on("click", function(e) {
+                e.preventDefault();
+                let item_id = $(this).data('id');
+                //  alert (item_id);
+                //  exit;
+
+                Swal.fire({
+                    title: "Do you want to Delete item from cart?",
+                    showDenyButton: true,
+                    confirmButtonText: "Yes, Delete",
+                    denyButtonText: `Don't Delete`
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                            url: "add-to-cart.php",
+                            type: "POST",
+                            data: {
+                                item_id: item_id
+                                
+                            },
+                            success: function(response) {
+                                if (response == true) {
+                                    Swal.fire({
+                                        position: "top-center",
+                                        icon: "success",
+                                        title: "Items is successfully deleted from cart",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    }).then( () => {
+                                        window.location.reload();
+                                    })
+                                }
+
+                            }
+                        })
+
+
+                    } else if (result.isDenied) {
+                        Swal.fire("Okay, not deleted", "", "info");
+                    }
+                });
+
+            })
+        })
+    </script>
+
 
 </body>
 

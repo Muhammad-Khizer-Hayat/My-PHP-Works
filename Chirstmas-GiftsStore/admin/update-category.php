@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("./config.php");
 require_once "./includes/helpers.php";
 
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_query($con, $query)) {
 
-        $_SESSION['success'] = "Category has been added successfully...!";
+        $_SESSION['success'] = "Category has been Updated successfully...!";
         header("Location:categories.php");
     } else {
         $_SESSION['error'] = "Category has not been updated...!";

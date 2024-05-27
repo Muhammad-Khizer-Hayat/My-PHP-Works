@@ -10,3 +10,4 @@
 <script src="js/ajax-mail.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

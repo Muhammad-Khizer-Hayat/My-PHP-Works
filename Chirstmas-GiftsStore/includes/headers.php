@@ -1,6 +1,11 @@
 <?php
 require_once "config.php";
-require_once "helpers.php"
+require_once "helpers.php";
+$items_count = getCartItemsCount($con);
+
+    // $data = getCart($con);
+ 
+
 
 
 ?>
@@ -21,35 +26,50 @@ require_once "helpers.php"
                            <div class="row">
 
                                <!-- Header Social -->
-                               <div class="header-social col-md-3 col-12">
+                               <div class="header-social col-md-4 col-12">
                                    <a href="#"><i class="fa fa-facebook"></i></a>
                                    <a href="#"><i class="fa fa-twitter"></i></a>
                                    <a href="#"><i class="fa fa-linkedin"></i></a>
                                    <a href="#"><i class="fa fa-instagram"></i></a>
                                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                   <a href="./admin/login.php"><i class="fa fa-user"></i> </a>
+
                                </div>
 
                                <!-- Header Logo -->
-                               <div class="header-logo col-md-3 col-12">
+                               <div class="header-logo col-md-2 col-12">
                                    <a href="index.html" class="logo"><img src="img/logo.png" alt="logo"></a>
                                </div>
 
                                <!-- Account Menu -->
                                <div class="account-menu col-md-6 col-12">
                                    <ul>
-                                       <li><a href="#">My Account</a></li>
+                                       
                                                   
-                                       <li><a href="./admin/login.php"><i class="fa fa-user"></i> Admin Login</a></li>
-                                       <li><a href="login.php"><i class="fa fa-user"></i>  Login</a></li>
-                                       <li><a href="./register.php"><i class="exit_to_register"></i> REGISTER</a></li>
+                                       <?php session_start();
+                                       if(!isset($_SESSION['user_id']) ){
+                                        echo '
+                                        <li><a href="login.php"><i class="fa fa-user"></i>  Login</a></li>
+                                        <li><a href="./register.php"><i class="fa fa-sign-in"></i> REGISTER</a></li>
+                                        ';
+                                       }
+                                       else{
+                                        echo "  
+                                        <li><a href='#'>My Account</a></li>
+                                         <li><a href='wishlist.php'>Wishlist</a></li>
+                                        <li><a href='logout.php'><i class='fa fa-sign-out'></i>Logout</a></li>
+                                        ";
+                                       }
+                                       ?>
+                                   
                
-                                       <li><a href="wishlist.php">Wishlist</a></li>
-                                       <li><a href="#" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i><span class="num">2</span></a>
-                                           
+                                   <li><a href='#' data-toggle='dropdown'><i class='fa fa-shopping-cart'></i><span class='num' id='cartItemsCountDesk'><?=$items_count['total_items']?></span></a>
+
                                            <!-- Mini Cart -->
                                            <div class="mini-cart-brief dropdown-menu text-left">
                                                <!-- Cart Products -->
                                                <div class="all-cart-product clearfix">
+                                 
                                                    <div class="single-cart clearfix">
                                                        <div class="cart-image">
                                                            <a href="product-details.php"><img src="img/cart/1.jpg" alt=""></a>
@@ -71,6 +91,7 @@ require_once "helpers.php"
                                                        </div>
                                                    </div>
                                                </div>
+                                               
                                                <!-- Cart Total -->
                                                <div class="cart-totals">
                                                    <h5>Total <span>£12.00</span></h5>

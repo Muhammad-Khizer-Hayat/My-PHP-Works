@@ -13,7 +13,7 @@ require_once("config.php");
     $_SESSION['delete_msg']='Delete Successfully..........!';
     
 
-    header("Location:products.php");
+    header("Location:categories.php");
 
  } 
 

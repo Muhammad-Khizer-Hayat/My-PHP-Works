@@ -16,6 +16,7 @@
 
 <body>
 
+
 <!-- Main Wrapper Start -->
 <div id="main-wrapper" class="section">
     
@@ -23,6 +24,20 @@
     <!-- Header Section Start -->
    
    <?php require_once "./includes/headers.php" ?>
+
+   <?php
+        $pid = null;
+        $product = null;
+        if(isset($_GET['pid'])){
+            $pid = $_GET['pid'];
+            $ret = getProducts($con, null, $pid);
+            $product = mysqli_fetch_assoc($ret);
+          
+        }
+
+        
+
+    ?>
    
     <!-- Header Section End -->
     
@@ -54,18 +69,16 @@
                    
                     <!-- Product Thumbnail -->
                     <div class="single-product-thumbnail product-thumbnail-slider float-left">
-                        <div class="single-thumb"><img src="img/product-details/thumb-1.jpg" alt=""></div>
-                        <div class="single-thumb"><img src="img/product-details/thumb-2.jpg" alt=""></div>
-                        <div class="single-thumb"><img src="img/product-details/thumb-3.jpg" alt=""></div>
-                        <div class="single-thumb"><img src="img/product-details/thumb-4.jpg" alt=""></div>
+                        <div class="single-thumb"><img src="<?php echo imageUrl("products", $product['image']) ?>" alt=""></div>
+                        <div class="single-thumb"><img src="<?php echo imageUrl("products", $product['image']) ?>" alt=""></div>
+                        <div class="single-thumb"><img src="<?php echo imageUrl("products", $product['image']) ?>" alt=""></div>
+                        <div class="single-thumb"><img src="<?php echo imageUrl("products", $product['image']) ?>" alt=""></div>
                     </div>
                     
                     <!-- Product Image -->
                     <div class="single-product-image product-image-slider fix">
-                        <div class="single-image"><img src="img/product-details/1.jpg" alt=""></div>
-                        <div class="single-image"><img src="img/product-details/2.jpg" alt=""></div>
-                        <div class="single-image"><img src="img/product-details/3.jpg" alt=""></div>
-                        <div class="single-image"><img src="img/product-details/4.jpg" alt=""></div>
+                        <div class="single-image"><img src="<?php echo imageUrl("products", $product['image']) ?>" alt=""></div>
+                 
                     </div>
                     
                 </div><!-- Product Image & Thumbnail End -->
@@ -74,7 +87,7 @@
                 <div class="single-product-content col-lg-5 col-12 mb-30">
                    
                     <!-- Title -->
-                    <h1 class="title">Holiday Candle</h1>
+                    <h1 class="title"><?php echo $product['name'] ?></h1>
                     
                     <!-- Product Rating -->
                     <span class="product-rating">
@@ -86,11 +99,11 @@
                     </span>
                     
                     <!-- Price -->
-                    <span class="product-price">€ 120.0</span>
+                    <span class="product-price">$<?php echo $product['unit_price'] ?></span>
                     
                     <!-- Description -->
                     <div class="description">
-                        <p>There are many variations of passages of Lorem Ipsum avaable,majority have suffered alteration in some form, by injected humour, or rdomised words which don't look even slightly believable.</p>
+                        <p><?php echo $product['description'] ?></p>
                     </div>
                     
                     <!-- Color -->
@@ -107,9 +120,9 @@
                     <!-- Quantity & Cart Button -->
                     <div class="product-quantity-cart fix">
                         <div class="product-quantity">
-                            <input type="text" value="0" name="qtybox">
+                            <input type="text" value="0" id="product-qty" name="qtybox">
                         </div>
-                        <button class="add-to-cart">add to cart</button>
+                        <button class="add-to-cart" id="addToCart" >add to cart</button>
                     </div>
                     
                     <!-- Action Button -->
@@ -195,6 +208,32 @@
 
   <!-- js-links-includes -->
   <?php require_once "./includes/Js-links.php" ?>
+
+  <script>
+    $(document).ready(function () {
+        $("#addToCart").on("click", function (e){
+            e.preventDefault();
+            let pid = "<?php echo $pid ?>";
+            let qty = $("#product-qty").val();
+            $.ajax({
+                url: "add-to-cart.php",
+                type: "POST",
+                data: {pid, qty},
+                success: function (response) {
+                    $("#cartItemsCountDesk").html(response);
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "Items is successfully added to cart",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+
+        })
+    })
+</script>
 </body>
 
 

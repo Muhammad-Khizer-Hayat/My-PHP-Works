@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //  $targetDir = "categories";
 //  echo $targetDir = __FILE__ . "/images/$targetDir/"; exit;
 // exit;
@@ -75,34 +75,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <div class="col-md-8">
         
-        <?php
-        
-        if (!empty($_SESSION['success'])) {
-            $msg = $_SESSION['success'];
-            echo " <div class='alert alert-success alert-dismissible fade show credErr'>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span>
-                </button> <strong>Congratulation! </strong> $msg</div>";
-        }
-        unset($_SESSION['success']);
+    <?php
+
+if (!empty($_SESSION['success'])) {
+    $msg = $_SESSION['success'];
+    echo " <div class='alert alert-success alert-dismissible fade show credErr'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span>
+        </button> <strong>Congratulation! </strong> $msg</div>";
+}
+unset($_SESSION['success']);
 
 
-        if (!empty($_SESSION['error'])) {
-            $msg = $_SESSION['error'];
-            echo " <div class='alert alert-danger alert-dismissible fade show credErr'>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span>
-                </button> <strong>Warning! </strong> $msg</div>";
-        }
-        unset($_SESSION['error']);
+if (!empty($_SESSION['error'])) {
+    $msg = $_SESSION['error'];
+    echo " <div class='alert alert-danger alert-dismissible fade show credErr'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span>
+        </button> <strong>Warning! </strong> $msg</div>";
+}
+unset($_SESSION['error']);
 
-        if (!empty($_SESSION['imgErr'])) {
-            $msg = $_SESSION['imgErr'];
-            echo " <div class='alert alert-danger alert-dismissible fade show credErr'>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span>
-                </button> <strong>Warning! </strong> $msg</div>";
-        }
-        unset($_SESSION['imgErr']);
+if (!empty($_SESSION['imgErr'])) {
+    $msg = $_SESSION['imgErr'];
+    echo " <div class='alert alert-danger alert-dismissible fade show credErr'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span>
+        </button> <strong>Warning! </strong> $msg</div>";
+}
+unset($_SESSION['imgErr']);
 
-        ?>
+if (!empty($_SESSION['delete_msg'])) {
+  $msg = $_SESSION['delete_msg'];
+  echo " <div class='alert alert-danger alert-dismissible fade show credErr'>
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span>
+      </button> <strong>Warning! </strong> $msg</div>";
+}
+unset($_SESSION['delete_msg']);
+
+?>
     </div>
 </div>
 <hr>
@@ -233,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             setTimeout(function() {
                 $(".credErr").hide();
-            }, 3000);
+            }, 5000);
 
         })
     </script>
