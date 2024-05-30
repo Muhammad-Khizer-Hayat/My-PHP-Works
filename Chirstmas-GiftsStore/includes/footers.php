@@ -66,7 +66,7 @@
                     
                     <!-- Footer Bottom Start -->
                     <div class="footer-bottom section text-center">
-                        <p><a href="templateshub.net">Templates Hub</a></p>
+                        <p><a href="#">Designer : Muhammad Khizer Hayat</a></p>
                     </div><!-- Footer Bottom End -->
 
                 </div>

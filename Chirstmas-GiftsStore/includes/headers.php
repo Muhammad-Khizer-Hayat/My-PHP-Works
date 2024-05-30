@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once "config.php";
 require_once "helpers.php";
 $items_count = getCartItemsCount($con);
@@ -46,8 +48,9 @@ $items_count = getCartItemsCount($con);
                                    <ul>
                                        
                                                   
-                                       <?php session_start();
-                                       if(!isset($_SESSION['user_id']) ){
+                                       <?php 
+                                       
+                                       if(!isset($_SESSION['login'])){
                                         echo '
                                         <li><a href="login.php"><i class="fa fa-user"></i>  Login</a></li>
                                         <li><a href="./register.php"><i class="fa fa-sign-in"></i> REGISTER</a></li>
@@ -57,6 +60,7 @@ $items_count = getCartItemsCount($con);
                                         echo "  
                                         <li><a href='#'>My Account</a></li>
                                          <li><a href='wishlist.php'>Wishlist</a></li>
+
                                         <li><a href='logout.php'><i class='fa fa-sign-out'></i>Logout</a></li>
                                         ";
                                        }

@@ -22,6 +22,10 @@
 
             </li>
             <li class="text-primary-all">
+              <a href="./view-contact-us.php"><i class="fas fa-phone" ></i><span>Contact-informations</span></a>
+
+            </li>
+            <li class="text-primary-all">
               <a href="#"><i class="fas fa-cube" ></i><span>Orders</span></a>
 
             </li>

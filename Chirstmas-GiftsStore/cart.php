@@ -1,3 +1,8 @@
+<!-- <?php
+ require_once "./includes/auth.php";
+
+?> -->
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -125,7 +130,8 @@
                                                 echo $grand_total;
                                                 ?>
                             </span></h5>
-                            <button class="button">process to checkout</button>
+                            <a href="./checkout.php"> <button  class="button">process to checkout</button></a>
+                           
                         </div>
                         
                     </div>

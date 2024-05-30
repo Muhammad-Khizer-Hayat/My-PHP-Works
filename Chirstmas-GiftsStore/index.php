@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -159,7 +162,7 @@ $products = getProducts($con);
                             
                             <!-- Action Button -->
                             <div class="action-button fix">
-                                <a href="?pid=<?=$prt['id'] ?>">add to cart</a>
+                                <a href="product-details.php ?pid=<?=$prt['id'] ?>">add to cart</a>
                             </div>
                             
                         </div>

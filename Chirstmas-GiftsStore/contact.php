@@ -1,3 +1,8 @@
+<!-- <?php
+ require_once "./includes/auth.php";
+
+?> -->
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -69,13 +74,13 @@
                             </div>
                             <div class="contact-form col-lg-7 col-12">
                                 <h4 class="title">Send Your Massage</h4>
-                                <form id="contact-form" action="https://demo.hasthemes.com/christ-preview/christ/mail.php" method="post">
+                                <form action="contact-us-qry.php" method="POST">
                                     <input type="text" name="name" placeholder="Your Name">
                                     <input type="email" name="email" placeholder="Your Email">
                                     <textarea name="message" placeholder="Your Message"></textarea>
-                                    <input type="submit" value="Submit">
+                                    <input type="submit" value="submit" name="submit" >
                                 </form>
-                                <p class="form-messege"></p>
+                                
                             </div>
 
                         </div>

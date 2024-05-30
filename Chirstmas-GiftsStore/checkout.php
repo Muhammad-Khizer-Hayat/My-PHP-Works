@@ -1,3 +1,8 @@
+<!-- <?php
+ require_once "./includes/auth.php";
+
+?> -->
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -17,6 +22,7 @@
 
 <body>
 
+
 <!-- Main Wrapper Start -->
 <div id="main-wrapper" class="section">
     
@@ -24,6 +30,9 @@
     <!-- Header Section Start -->
     <!-- headers-includes -->
 <?php require_once "./includes/headers.php" ?>    
+<?php
+    $data = getCart($con);
+    ?>
     
     <!-- Header Section End -->
     
@@ -74,7 +83,7 @@
                             <div id="billing-method" class="collapse">
                                 <div class="accordion-body billing-method fix">
                                    
-                                    <form action="#" class="billing-form checkout-form">
+                                    <form action="check-out-qry.php" method="POST"  class="billing-form checkout-form">
                                         <div class="row">
                                             <div class="col-12 mb-20">
                                                 <select>
@@ -90,25 +99,23 @@
                                                   <option value="9">Dominican Republic</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-6 col-12 mb-20">									
-                                                <input type="text" placeholder="First Name">
+                                            <div class="col-md-12 col-12 mb-20">									
+                                                <input type="text"  name="name" placeholder=" Name">
                                             </div>
-                                            <div class="col-md-6 col-12 mb-20">								
-                                                <input type="text" placeholder="Last Name">
-                                            </div>
+                                        
                                             <div class="col-12 mb-20">								
-                                                <input type="text" placeholder="E-Mail">
+                                                <input type="text" name="email" placeholder="E-Mail">
                                             </div>
                                             <div class="col-12 mb-20">
-                                                <input placeholder=" Address" type="text">
+                                                <input placeholder=" Address" name="address" type="text">
                                             </div>
                                            
                                            
                                             <div class="col-md-12 col-12 mb-20">									
-                                                <input placeholder="Phone Number" type="number">
+                                                <input placeholder="Phone Number" name="number" type="number">
                                             </div>							
                                         </div>
-                                    </form>
+                                    <!-- </form> -->
                                     
                                 </div>
                             </div>
@@ -132,15 +139,17 @@
                             <form action="#">
                                 <ul>
                                     <li><p class="strong">product</p><p class="strong">total</p></li>
-                                    <li><p>Holiday Candle x1</p><p>$104.99</p></li>
-                                    <li><p>Christmas Tree x1 </p><p>$85.99</p></li>
-                                    <li><p class="strong">cart subtotal</p><p class="strong">$190.98</p></li>
-                                    <li><p class="strong">shipping</p><p>
-                                        <input type="radio" name="order-shipping" id="flat" /><label for="flat">Flat Rate $ 7.00</label><br />
-                                        <input type="radio" name="order-shipping" id="free" /><label for="free">Free Shipping</label>
-                                    </p></li>
-                                    <li><p class="strong">order total</p><p class="strong">$190.98</p></li>
-                                    <li><button class="button">place order</button></li>
+                                    <?php $grand_total = 0 ?>
+                                    <?php if (!empty($data)) { ?>
+                                    <?php while ($item = mysqli_fetch_assoc($data['items'])) { ?>
+                                        <?php $grand_total += $item['total_price']  ?>
+                                    <li><p><?= $item['name'] ?></p><p>$<?= $item['total_price'] ?></p></li>
+                                    <?php } ?>
+                                    <?php } ?>
+                                    <li><p class="strong">cart subtotal</p><p class="strong">$<?= $grand_total ?></p></li>
+                                    <li><p class="strong">shipping</p><p> Free Shipping </p></li>
+                                    <li><p class="strong">order total</p><p class="strong">$<?= $grand_total ?></p></li>
+                                    <li><button class="button" type="submit" name="submit" value="submit" >place order</button></li>
                                 </ul>
                             </form>
                         </div>
